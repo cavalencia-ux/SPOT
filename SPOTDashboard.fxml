@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="SPOTDashboardController" styleClass="root-pane">
+    
+    <!-- Top Header -->
+    <top>
+        <VBox styleClass="header">
+            <HBox styleClass="header-content" spacing="20">
+                <Label text="🅿 SPOT" styleClass="header-title"/>
+                <Label text="Smart Parking System" styleClass="header-subtitle"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <VBox alignment="CENTER_RIGHT" spacing="5">
+                    <Label text="Active Sessions" styleClass="header-info-label"/>
+                    <Label fx:id="activeSessionsLabel" text="0" styleClass="header-info-value"/>
+                </VBox>
+            </HBox>
+            <Separator styleClass="header-separator"/>
+        </VBox>
+    </top>
+    
+    <!-- Left Sidebar Navigation -->
+    <left>
+        <VBox styleClass="sidebar">
+            <padding>
+                <Insets top="20" bottom="20" left="10" right="10"/>
+            </padding>
+            
+            <!-- Navigation Buttons -->
+            <Button fx:id="dashboardBtn" text="📊 Dashboard" styleClass="nav-button, nav-button-active" 
+                    onAction="#showDashboard" maxWidth="Infinity"/>
+            <Button fx:id="bookSlotBtn" text="✚ Book Slot" styleClass="nav-button" 
+                    onAction="#showBookSlot" maxWidth="Infinity"/>
+            <Button fx:id="releaseSlotBtn" text="✖ Release Slot" styleClass="nav-button" 
+                    onAction="#showReleaseSlot" maxWidth="Infinity"/>
+            <Button fx:id="searchSlotBtn" text="🔍 Search Slot" styleClass="nav-button" 
+                    onAction="#showSearchSlot" maxWidth="Infinity"/>
+            
+            <Separator styleClass="sidebar-separator"/>
+            
+            <!-- Statistics Panel -->
+            <VBox styleClass="sidebar-stats" spacing="10">
+                <Label text="Quick Stats" styleClass="sidebar-label"/>
+                <HBox spacing="5">
+                    <VBox styleClass="stat-item">
+                        <Label text="Total" styleClass="stat-label"/>
+                        <Label fx:id="totalSlotsLabel" text="10" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-item">
+                        <Label text="Available" styleClass="stat-label"/>
+                        <Label fx:id="availableSlotsLabel" text="10" styleClass="stat-value-available"/>
+                    </VBox>
+                    <VBox styleClass="stat-item">
+                        <Label text="Occupied" styleClass="stat-label"/>
+                        <Label fx:id="occupiedSlotsLabel" text="0" styleClass="stat-value-occupied"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+            
+            <Region VBox.vgrow="ALWAYS"/>
+            
+            <!-- Footer Info -->
+            <Label text="© 2025 SPOT" styleClass="sidebar-footer"/>
+        </VBox>
+    </left>
+    
+    <!-- Main Content Area -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+            
+            <!-- Dashboard View -->
+            <VBox fx:id="dashboardView" spacing="20" styleClass="view">
+                <padding>
+                    <Insets top="30" bottom="30" left="30" right="30"/>
+                </padding>
+                
+                <Label text="Parking Slots Overview" styleClass="view-title"/>
+                
+                <!-- Slots Grid -->
+                <GridPane fx:id="slotsGrid" hgap="15" vgap="15" styleClass="slots-grid"/>
+                
+                <!-- Waiting Queue -->
+                <VBox styleClass="card" spacing="10">
+                    <Label text="⏳ Waiting Queue" styleClass="card-title"/>
+                    <ListView fx:id="waitingQueueView" prefHeight="120" styleClass="waiting-list"/>
+                </VBox>
+            </VBox>
+            
+            <!-- Book Slot View -->
+            <VBox fx:id="bookSlotView" spacing="20" styleClass="view">
+                <padding>
+                    <Insets top="30" bottom="30" left="30" right="30"/>
+                </padding>
+                
+                <Label text="Book a Parking Slot" styleClass="view-title"/>
+                
+                <VBox styleClass="card" spacing="15">
+                    <Label text="Tenant Information" styleClass="card-title"/>
+                    
+                    <VBox spacing="8">
+                        <Label text="Tenant Name" styleClass="form-label"/>
+                        <TextField fx:id="tenantNameField" styleClass="form-input" 
+                                   promptText="Enter your name"/>
+                    </VBox>
+                    
+                    <VBox spacing="8">
+                        <Label text="Vehicle Plate Number" styleClass="form-label"/>
+                        <TextField fx:id="vehiclePlateField" styleClass="form-input" 
+                                   promptText="e.g., ABC-1234"/>
+                    </VBox>
+                    
+                    <VBox spacing="8">
+                        <Label text="Available Slots" styleClass="form-label"/>
+                        <ComboBox fx:id="availableSlotsCombo" styleClass="form-input" maxWidth="Infinity"/>
+                    </VBox>
+                    
+                    <HBox spacing="15">
+                        <Button text="Book Slot" styleClass="btn-primary" onAction="#bookSlot" prefWidth="150"/>
+                        <Button text="Clear" styleClass="btn-secondary" onAction="#clearBookForm" prefWidth="150"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="bookStatusLabel" text="" styleClass="status-message"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+            
+            <!-- Release Slot View -->
+            <VBox fx:id="releaseSlotView" spacing="20" styleClass="view">
+                <padding>
+                    <Insets top="30" bottom="30" left="30" right="30"/>
+                </padding>
+                
+                <Label text="Release a Parking Slot" styleClass="view-title"/>
+                
+                <VBox styleClass="card" spacing="15">
+                    <Label text="Select Slot to Release" styleClass="card-title"/>
+                    
+                    <VBox spacing="8">
+                        <Label text="Occupied Slots" styleClass="form-label"/>
+                        <ComboBox fx:id="occupiedSlotsCombo" styleClass="form-input" maxWidth="Infinity"/>
+                    </VBox>
+                    
+                    <VBox spacing="8">
+                        <Label text="Parking Duration" styleClass="form-label"/>
+                        <Label fx:id="durationLabel" text="N/A" styleClass="info-display"/>
+                    </VBox>
+                    
+                    <VBox spacing="8">
+                        <Label text="Tenant Information" styleClass="form-label"/>
+                        <TextArea fx:id="tenantInfoArea" styleClass="form-input" prefRowCount="3" 
+                                  wrapText="true" editable="false"/>
+                    </VBox>
+                    
+                    <HBox spacing="15">
+                        <Button text="Release Slot" styleClass="btn-danger" onAction="#releaseSlot" prefWidth="150"/>
+                        <Button text="Clear" styleClass="btn-secondary" onAction="#clearReleaseForm" prefWidth="150"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="releaseStatusLabel" text="" styleClass="status-message"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+            
+            <!-- Search Slot View -->
+            <VBox fx:id="searchSlotView" spacing="20" styleClass="view">
+                <padding>
+                    <Insets top="30" bottom="30" left="30" right="30"/>
+                </padding>
+                
+                <Label text="Search Parking Slot" styleClass="view-title"/>
+                
+                <VBox styleClass="card" spacing="15">
+                    <Label text="Search Options" styleClass="card-title"/>
+                    
+                    <HBox spacing="10">
+                        <VBox spacing="8" HBox.hgrow="ALWAYS">
+                            <Label text="Search by Slot ID" styleClass="form-label"/>
+                            <TextField fx:id="searchSlotIdField" styleClass="form-input" 
+                                       promptText="e.g., A1, B5"/>
+                        </VBox>
+                        <Button text="Search" styleClass="btn-primary" onAction="#searchSlot" 
+                                prefWidth="100" VBox.vgrow="ALWAYS"/>
+                    </HBox>
+                </VBox>
+                
+                <!-- Search Results -->
+                <VBox fx:id="searchResultsBox" styleClass="card" spacing="15">
+                    <Label text="Search Results" styleClass="card-title"/>
+                    <TextArea fx:id="searchResultsArea" styleClass="form-input" prefRowCount="8" 
+                              wrapText="true" editable="false"/>
+                </VBox>
+            </VBox>
+            
+        </StackPane>
+    </center>
+    
+    <!-- Bottom Footer -->
+    <bottom>
+        <HBox styleClass="footer">
+            <padding>
+                <Insets left="20" right="20" top="10" bottom="10"/>
+            </padding>
+            <Label text="SPOT v1.0 - Smart Parking Optimization for Tenants" styleClass="footer-text"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="footerStatusLabel" text="Ready" styleClass="footer-status"/>
+        </HBox>
+    </bottom>
+    
+</BorderPane>

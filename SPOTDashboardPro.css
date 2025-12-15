@@ -1,0 +1,586 @@
+/* ============================================================
+   SPOT Dashboard - Professional Dark Theme
+   Modern, production-quality styling inspired by:
+   - Figma, GitHub, VS Code, Linear
+   - Clean, minimal, professional aesthetic
+   ============================================================ */
+
+/* ==================== COLOR PALETTE ==================== */
+/*
+  PRIMARY:     #3B82F6 (Blue 500) - Actions, highlights, focus
+  DARK BG:     #0F1117 (Almost black) - Main background
+  CARD BG:     #1C1F26 (Dark gray) - Card backgrounds
+  TEXT PRIMARY: #E6EDF3 (Light gray) - Main text
+  TEXT MUTED:   #8B949E (Medium gray) - Secondary text
+  SUCCESS:      #3FB950 (Green) - Available status
+  DANGER:       #F85149 (Red) - Occupied/Error
+  BORDER:       #30363D (Subtle gray) - Borders
+*/
+
+/* ==================== ROOT & GLOBAL STYLES ==================== */
+
+.root-container {
+    -fx-font-family: -fx-system-font-family;
+    -fx-font-size: 13px;
+    -fx-base: #0F1117;
+}
+
+/* Default text fill */
+.label {
+    -fx-text-fill: #E6EDF3;
+}
+
+/* ==================== NAVBAR ==================== */
+
+.navbar {
+    -fx-background-color: #0F1117;
+    -fx-border-color: #30363D;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* Logo styling */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.3), 6, 0, 0, 1);
+}
+
+.navbar-logo {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #58A6FF;
+}
+
+.navbar-subtitle {
+    -fx-font-size: 11px;
+    -fx-text-fill: #8B949E;
+}
+
+.header-stats {
+    -fx-border-color: #30363D;
+    -fx-border-width: 0 0 0 1;
+    -fx-padding: 0 0 0 20;
+}
+
+.stat-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #8B949E;
+    -fx-font-weight: bold;
+}
+
+.stat-value {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #58A6FF;
+}
+
+.navbar-separator {
+    -fx-padding: 12 0 0 0;
+    -fx-border-color: transparent;
+}
+
+/* ==================== MAIN CONTAINER ==================== */
+
+.main-container {
+    -fx-background-color: #0F1117;
+}
+
+/* ==================== SIDEBAR ==================== */
+
+.sidebar {
+    -fx-background-color: #0F1117;
+    -fx-border-color: #30363D;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Navigation Items */
+.nav-item {
+    -fx-font-size: 13px;
+    -fx-padding: 12 16 12 16;
+    -fx-text-alignment: left;
+    -fx-content-display: left;
+    -fx-text-fill: #8B949E;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-weight: 500;
+}
+
+.nav-item:hover {
+    -fx-background-color: #1C1F26;
+    -fx-text-fill: #C9D1D9;
+    -fx-border-radius: 6;
+}
+
+.nav-item:pressed {
+    -fx-background-color: #30363D;
+    -fx-text-fill: #58A6FF;
+}
+
+.nav-item-active {
+    -fx-background-color: #1F6FEB15;
+    -fx-text-fill: #58A6FF;
+    -fx-border-color: #58A6FF;
+    -fx-border-width: 0 0 0 3;
+    -fx-padding: 12 16 12 13;
+}
+
+.nav-item-active:hover {
+    -fx-background-color: #1F6FEB25;
+}
+
+.sidebar-separator {
+    -fx-border-color: #30363D;
+    -fx-padding: 16 0 16 0;
+}
+
+/* Quick Stats Panel */
+.quick-stats-panel {
+    -fx-background-color: #1C1F26;
+    -fx-border-radius: 8;
+    -fx-padding: 16;
+    -fx-border-color: #30363D;
+    -fx-border-width: 1;
+}
+
+.panel-title {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #C9D1D9;
+}
+
+.stat-card {
+    -fx-background-color: #0F1117;
+    -fx-padding: 12;
+    -fx-border-radius: 6;
+    -fx-border-color: #30363D;
+    -fx-border-width: 1;
+}
+
+.stat-card-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #8B949E;
+    -fx-font-weight: bold;
+}
+
+.stat-card-value {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #58A6FF;
+}
+
+.stat-card-value-available {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3FB950;
+}
+
+.stat-card-value-occupied {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F85149;
+}
+
+.sidebar-footer {
+    -fx-font-size: 10px;
+    -fx-text-fill: #6E7681;
+}
+
+/* ==================== CONTENT AREA ==================== */
+
+.content-container {
+    -fx-background-color: #0F1117;
+}
+
+.view {
+    -fx-background-color: #0F1117;
+}
+
+/* Page Headers */
+.page-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #E6EDF3;
+}
+
+.page-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #8B949E;
+}
+
+/* Section Titles */
+.section-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #C9D1D9;
+}
+
+/* ==================== CARDS ==================== */
+
+.card-light {
+    -fx-background-color: #1C1F26;
+    -fx-border-color: #30363D;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 2);
+}
+
+/* ==================== SLOTS GRID ==================== */
+
+.slots-scroll {
+    -fx-background-color: #0F1117;
+    -fx-padding: 8;
+    -fx-border-color: transparent;
+}
+
+.slots-grid {
+    -fx-padding: 8;
+    -fx-gap: 16;
+}
+
+.slot-card {
+    -fx-background-color: #1C1F26;
+    -fx-border-color: #30363D;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 6, 0, 0, 1);
+}
+
+.slot-card:hover {
+    -fx-border-color: #58A6FF;
+    -fx-border-width: 2;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.3), 10, 0, 0, 2);
+}
+
+.slot-id {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #58A6FF;
+}
+
+.slot-status {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 10 6 10;
+    -fx-border-radius: 4;
+}
+
+.slot-status-available {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #3FB950;
+}
+
+.slot-status-occupied {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #F85149;
+}
+
+.slot-info {
+    -fx-font-size: 11px;
+    -fx-text-fill: #8B949E;
+}
+
+.slot-plate {
+    -fx-font-size: 12px;
+    -fx-text-fill: #C9D1D9;
+    -fx-font-weight: 500;
+}
+
+/* ==================== WAITING QUEUE ==================== */
+
+.queue-container {
+    -fx-padding: 20 0 0 0;
+    -fx-border-color: #30363D;
+    -fx-border-width: 1 0 0 0;
+}
+
+.waiting-list {
+    -fx-font-size: 12px;
+    -fx-control-inner-background: #1C1F26;
+    -fx-control-inner-background-alt: #161B22;
+    -fx-text-fill: #C9D1D9;
+    -fx-padding: 8;
+}
+
+.waiting-list .list-cell {
+    -fx-padding: 8;
+    -fx-border-color: #30363D;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: #C9D1D9;
+}
+
+.waiting-list .list-cell:filled:selected {
+    -fx-background-color: #1F6FEB30;
+    -fx-text-fill: #58A6FF;
+}
+
+/* ==================== FORMS ==================== */
+
+.form-section-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #C9D1D9;
+}
+
+.form-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #C9D1D9;
+}
+
+.form-input {
+    -fx-font-size: 12px;
+    -fx-padding: 10 12 10 12;
+    -fx-border-color: #30363D;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-color: #0F1117;
+    -fx-text-fill: #E6EDF3;
+    -fx-control-inner-background: #0F1117;
+}
+
+.form-input:focused {
+    -fx-border-color: #58A6FF;
+    -fx-border-width: 2;
+    -fx-padding: 9 11 9 11;
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.3), 8, 0, 0, 0);
+}
+
+.form-input:hover {
+    -fx-border-color: #444C56;
+}
+
+.form-separator {
+    -fx-border-color: #30363D;
+    -fx-padding: 12 0 12 0;
+}
+
+/* ==================== BUTTONS ==================== */
+
+.btn-primary {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-padding: 8 16 8 16;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #1F6FEB;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.2), 4, 0, 0, 1);
+}
+
+.btn-primary:hover {
+    -fx-background-color: #388BFD;
+    -fx-effect: dropshadow(gaussian, rgba(31, 111, 235, 0.4), 6, 0, 0, 2);
+}
+
+.btn-primary:pressed {
+    -fx-background-color: #1663E6;
+}
+
+.btn-secondary {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-padding: 8 16 8 16;
+    -fx-text-fill: #C9D1D9;
+    -fx-background-color: transparent;
+    -fx-border-color: #30363D;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #1C1F26;
+    -fx-border-color: #444C56;
+    -fx-text-fill: #E6EDF3;
+}
+
+.btn-secondary:pressed {
+    -fx-background-color: #30363D;
+}
+
+.btn-danger {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-padding: 8 16 8 16;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #F85149;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(248, 81, 73, 0.2), 4, 0, 0, 1);
+}
+
+.btn-danger:hover {
+    -fx-background-color: #FB8500;
+    -fx-effect: dropshadow(gaussian, rgba(248, 81, 73, 0.4), 6, 0, 0, 2);
+}
+
+.btn-danger:pressed {
+    -fx-background-color: #DA3633;
+}
+
+/* ==================== STATUS MESSAGES ==================== */
+
+.status-message {
+    -fx-font-size: 11px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #8B949E;
+}
+
+.status-success {
+    -fx-text-fill: #3FB950;
+}
+
+.status-error {
+    -fx-text-fill: #F85149;
+}
+
+.status-info {
+    -fx-text-fill: #58A6FF;
+}
+
+/* ==================== INFO DISPLAY ==================== */
+
+.info-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #8B949E;
+    -fx-font-weight: bold;
+}
+
+.info-value {
+    -fx-font-size: 13px;
+    -fx-text-fill: #C9D1D9;
+    -fx-font-weight: 500;
+}
+
+/* ==================== SEARCH RESULTS ==================== */
+
+.search-results {
+    -fx-padding: 8 0 0 0;
+}
+
+/* ==================== FOOTER ==================== */
+
+.footer {
+    -fx-background-color: #0F1117;
+    -fx-border-color: #30363D;
+    -fx-border-width: 1 0 0 0;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.footer-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #8B949E;
+}
+
+.footer-status {
+    -fx-font-size: 11px;
+    -fx-text-fill: #3FB950;
+    -fx-font-weight: bold;
+}
+
+/* ==================== SEPARATORS & DIVIDERS ==================== */
+
+.separator {
+    -fx-border-color: #30363D;
+    -fx-padding: 0;
+}
+
+/* ==================== SCROLLBARS ==================== */
+
+.scroll-bar {
+    -fx-padding: 0;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button,
+.scroll-bar:horizontal .increment-button,
+.scroll-bar:horizontal .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #30363D;
+    -fx-background-radius: 4;
+    -fx-padding: 0;
+    -fx-effect: none;
+}
+
+.scroll-bar:vertical .thumb:hover,
+.scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #444C56;
+}
+
+/* ==================== COMBO BOX STYLING ==================== */
+
+.combo-box {
+    -fx-font-size: 12px;
+    -fx-padding: 0;
+    -fx-text-fill: #E6EDF3;
+    -fx-background-color: #0F1117;
+    -fx-border-color: #30363D;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+}
+
+.combo-box:focused {
+    -fx-border-color: #58A6FF;
+    -fx-border-width: 2;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #E6EDF3;
+    -fx-padding: 8;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #1C1F26;
+    -fx-border-color: #30363D;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #1C1F26;
+    -fx-text-fill: #C9D1D9;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: #1F6FEB;
+    -fx-text-fill: #ffffff;
+}
+
+/* ==================== TEXT AREA STYLING ==================== */
+
+.text-area {
+    -fx-control-inner-background: #0F1117;
+    -fx-text-fill: #E6EDF3;
+    -fx-font-size: 12px;
+    -fx-font-family: "Consolas", "Monaco", "Courier New", monospace;
+    -fx-padding: 10;
+}
+
+.text-area:focused {
+    -fx-control-inner-background: #0F1117;
+    -fx-text-fill: #E6EDF3;
+}
+
+.text-area .content {
+    -fx-padding: 8;
+}
+
+/* ==================== ANIMATIONS & TRANSITIONS ==================== */
+
+/* Smooth transitions on buttons */
+.btn-primary, .btn-secondary, .btn-danger {
+    -fx-transition-duration: 0.2s;
+}
+
+.nav-item {
+    -fx-transition-duration: 0.15s;
+}
